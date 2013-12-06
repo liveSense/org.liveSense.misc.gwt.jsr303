@@ -1,5 +1,11 @@
 language: java
-jdk:
-  - openjdk6
-script: 
-  - mvn clean install
+before_install:
+- curl https://raw.github.com/liveSense/all/master/travis-settings.xml --create-dirs
+  -o target/travis/settings.xml
+- openjdk6
+script:
+- mvn deploy --settings target/travis/settings.xml
+env:
+  global:
+  - secure: lcJ17iiCL7od5Dq1Tu5isb0uyHPYKGKxDz8LLz9wajeA4DubwrCVp6ftKlDVBHExya/C9yvAHkvY4TWJ1IFtS0oniXCv/MoS/Foja9Dwow4jD2K5KsQRv9VHVAluhUHnHiohO/N6srPMWc8D+hMf78hW3Cp7wLagW7wlTXYg2uM=
+  - secure: cYIj50sHbQPzjTANhnfbVJ+51wOZPgAkpZHaKPPxwuVdoMTZOdgJe+XegJklNZyjlOexDz/0xB0EqHJc2Ng2GFvRGedk6h7PBmgHS/sSRLN9Qt5Qt9vfDNKLplTuWZps/8Hjgk392t5RNivLiF7I4vBA7FQGlR3L9SEuBcmw2fo=
